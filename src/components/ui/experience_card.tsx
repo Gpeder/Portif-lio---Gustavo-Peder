@@ -1,8 +1,8 @@
 import { Briefcase, Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Card, CardContent } from "@/components/ui/card";
+import type { ExperienceItem } from '@/types/portifolio';
 
-import { ExperienceItem } from '@/types/portifolio';
 
 export default function ProfessionalExperienceCard({
   years,

@@ -3,7 +3,6 @@ import { projetos } from '../data/project_items';
 import ProjectModal from './ui/project_modal';
 import { Section } from './ui/section';
 import type { ProjectItem } from '@/types/portifolio';
-import ProjectCard from './ui/ProjectCard';
 import {
     Carousel,
     CarouselContent,
@@ -11,6 +10,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel';
+import ProjectCard from './ui/ProjectCard';
 
 export default function Projects() {
     const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
