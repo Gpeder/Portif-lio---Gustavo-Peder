@@ -1,0 +1,181 @@
+{
+    "identidade": {
+        "nome": "Seu Nome",
+        "logo": "img/sua-logo.svg",
+        "favicon": "img/favicon.ico"
+    },
+    "seo": {
+        "titulo_pagina": "Seu Nome - Desenvolvedor / Designer",
+        "descricao": "Breve descrição do seu perfil profissional para aparecer nos buscadores. Máx. 160 caracteres.",
+        "keywords": [
+            "desenvolvedor front end",
+            "ux design",
+            "ui design",
+            "react",
+            "javascript"
+        ],
+        "og_imagem": "img/og-image.jpg"
+    },
+    "navegacao": {
+        "itens": [
+            {
+                "label": "Experiência",
+                "ancora": "experiencia"
+            },
+            {
+                "label": "Formação",
+                "ancora": "formacao"
+            },
+            {
+                "label": "Contato",
+                "ancora": "contato"
+            }
+        ]
+    },
+    "perfil": {
+        "foto": "img/sua-foto.jpg",
+        "foto_alt": "Foto de [Seu Nome]",
+        "titulo_linha1": "Desenvolvedor",
+        "titulo_linha2": "Front End &",
+        "titulo_linha3": "UX/UI Designer",
+        "localizacao": "Sua Cidade, Estado 📍",
+        "disponivel_para_projetos": true
+    },
+    "sobre": {
+        "texto": "Desenvolvo projetos completos utilizando **HTML**, **CSS** e **JavaScript**. Para aplicações web como [nome do projeto] trabalhei no **UX** e **UI Design** do projeto."
+    },
+    "experiencia": {
+        "titulo_secao": "Experiência",
+        "id_secao": "experiencia",
+        "descricao_secao": "Descreva em 1-2 frases o tipo de trabalho que você costuma realizar e as tecnologias que domina.",
+        "itens": [
+            {
+                "id": 1,
+                "ano": "2024 - atual",
+                "nome_projeto_empresa": "Nome do Projeto ou Empresa",
+                "cargo": "Desenvolvedor Pleno / Freelancer / Estagiário",
+                "descricao": "Descreva brevemente o que você fez neste projeto. Mencione entregas concretas e impacto gerado. Até 3 frases.",
+                "tecnologias": [
+                    "React",
+                    "TypeScript",
+                    "Node.js",
+                    "UX Design",
+                    "Figma"
+                ],
+                "link_projeto": "https://link-do-projeto.com"
+            },
+            {
+                "id": 2,
+                "ano": "2023",
+                "nome_projeto_empresa": "Segundo Projeto ou Empresa",
+                "cargo": "Cargo que você ocupou",
+                "descricao": "Descreva o que foi desenvolvido, metodologias usadas e resultado final.",
+                "tecnologias": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "WordPress"
+                ],
+                "link_projeto": ""
+            },
+            {
+                "id": 3,
+                "ano": "2022",
+                "nome_projeto_empresa": "Terceiro Projeto ou Empresa",
+                "cargo": "Cargo que você ocupou",
+                "descricao": "Descreva o escopo do projeto e sua contribuição específica.",
+                "tecnologias": [
+                    "Vue.js",
+                    "SCSS",
+                    "UI Design"
+                ],
+                "link_projeto": "https://link-do-projeto.com"
+            }
+        ]
+    },
+    "formacao": {
+        "titulo_secao": "Formação",
+        "id_secao": "formacao",
+        "descricao_secao": "Texto introdutório sobre sua trajetória acadêmica. Destaque em **negrito** seu nível mais alto de formação.",
+        "academica": [
+            {
+                "tipo": "Bacharel",
+                "curso": "Nome do Curso",
+                "instituicao": "Nome da Instituição"
+            },
+            {
+                "tipo": "Tecnólogo",
+                "curso": "Nome do Curso",
+                "instituicao": "Nome da Instituição"
+            },
+            {
+                "tipo": "Mestre",
+                "curso": "Nome do Curso",
+                "instituicao": "Nome da Instituição"
+            }
+        ],
+        "cursos_intensivos": [
+            {
+                "nome": "Nome do Curso / Plataforma",
+                "carga_horaria": "40h"
+            },
+            {
+                "nome": "Outro Curso Online",
+                "carga_horaria": "72h"
+            }
+        ],
+        "idiomas": [
+            {
+                "idioma": "Português",
+                "nivel": "Nativo"
+            },
+            {
+                "idioma": "Inglês",
+                "nivel": "Fluente"
+            },
+            {
+                "idioma": "Espanhol",
+                "nivel": "Intermediário"
+            }
+        ]
+    },
+    "contato": {
+        "titulo_secao": "Contato",
+        "id_secao": "contato",
+        "texto_chamada": "Estou disponível para novos projetos no momento. Entre em contato comigo e marcamos uma conversa 👋",
+        "email": "voce@email.com",
+        "telefone": "+55 11 99999-9999",
+        "redes_sociais": [
+            {
+                "plataforma": "GitHub",
+                "url": "https://github.com/seu-usuario",
+                "exibir_como": "@seu-usuario"
+            },
+            {
+                "plataforma": "LinkedIn",
+                "url": "https://linkedin.com/in/seu-perfil",
+                "exibir_como": "linkedin.com/in/seu-perfil"
+            },
+            {
+                "plataforma": "Instagram",
+                "url": "https://instagram.com/seu-usuario",
+                "exibir_como": "@seu-usuario"
+            }
+        ]
+    },
+    "rodape": {
+        "texto": "Seu Nome. Alguns direitos reservados.",
+        "ano": "2025"
+    },
+    "estilo": {
+        "paleta_sugerida": {
+            "primaria": "#0a0a0a",
+            "secundaria": "#ffffff",
+            "destaque": "#fb1"
+        },
+        "fonte_principal": "Inter, sans-serif",
+        "fonte_codigo": "Fira Code, monospace",
+        "layout": "single-page com âncoras",
+        "animacoes": "sutis, scroll-based"
+    }
+}
