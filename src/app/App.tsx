@@ -1,14 +1,17 @@
+import Hero from "@/components/hero"
+import Navbar from "@/components/layout/nav_bar"
+import ScrollTop from "@/components/ui/scroll_top"
+
 function App() {
   return (
-    <div className="min-h-screen bg-bg text-ink flex items-center justify-center font-sans">
-      <div className="text-center space-y-4">
-        <h1 className="text-5xl font-bold tracking-tight text-accent font-display">
-          Hello World
-        </h1>
-        <p className="text-muted text-lg font-normal">
-          Portfólio GP inicializado com sucesso.
-        </p>
-      </div>
+    <div className="min-h-screen bg-background text-foreground">
+      <ScrollTop />
+      <Navbar />
+      <main>
+        <Hero />
+
+      </main>
+
     </div>
   )
 }
