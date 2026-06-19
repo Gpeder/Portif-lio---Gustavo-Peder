@@ -73,6 +73,7 @@ export default function ProjectModal({ projeto, onClose }: ProjectModalProps) {
                                         src={screenshots[activeImg]}
                                         alt={`${projeto.name} screenshot ${activeImg + 1}`}
                                         className="w-full h-full object-cover"
+                                        loading="eager"
                                     />
 
                                     {hasPrev && (
@@ -105,7 +106,7 @@ export default function ProjectModal({ projeto, onClose }: ProjectModalProps) {
                                                     className={`w-12 h-8 rounded overflow-hidden border-2 transition-all ${i === activeImg ? 'border-accent opacity-100' : 'border-white/20 opacity-50 hover:opacity-80'
                                                         }`}
                                                 >
-                                                    <img src={src} alt={`${projeto.name} - screenshot ${i + 1}`} className="w-full h-full object-cover" />
+                                                    <img src={src} alt={`${projeto.name} - screenshot ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
                                                 </button>
                                             ))}
                                         </div>
