@@ -1,5 +1,6 @@
 import Hero from "@/components/hero"
 import Navbar from "@/components/layout/nav_bar"
+import Projects from "@/components/projects"
 import ScrollTop from "@/components/ui/scroll_top"
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <Projects />
 
       </main>
 

@@ -65,4 +65,25 @@ export const projetos: ProjectItem[] = [
       "https://images.unsplash.com/photo-1609921141835-710b7fa6e438?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjBhcHAlMjBwcm9kdWN0aXZpdHklMjBzY3JlZW58ZW58MXx8fHwxNzgxNzgyODMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     ],
   },
+  {
+    name: "App de Produtividade",
+    description: "Aplicativo mobile para gerenciamento de tarefas com sincronização em nuvem e notificações push.",
+    overview: "Aplicativo mobile cross-platform focado em produtividade pessoal e colaboração em equipe. Utiliza metodologia GTD (Getting Things Done) adaptada com suporte a projetos, tags e prioridades.",
+    tecnologias: ["React Native", "Redux", "Firebase", "Expo", "TypeScript"],
+    features: [
+      "Gerenciamento de tarefas com sub-tarefas e dependências",
+      "Sincronização em tempo real entre dispositivos",
+      "Notificações push agendadas e por geolocalização",
+      "Modo offline com sync automático ao reconectar",
+      "Relatório semanal de produtividade por email",
+      "Integração com Google Calendar e Notion",
+    ],
+    link_projeto: "",
+    link_github: "https://github.com/usuario/projeto",
+    status: "Em desenvolvimento",
+    screenshots: [
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBwcm9kdWN0aXZpdHklMjBzY3JlZW58ZW58MXx8fHwxNzgxNzgyODMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "https://images.unsplash.com/photo-1609921141835-710b7fa6e438?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjBhcHAlMjBwcm9kdWN0aXZpdHklMjBzY3JlZW58ZW58MXx8fHwxNzgxNzgyODMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    ],
+  },
 ];

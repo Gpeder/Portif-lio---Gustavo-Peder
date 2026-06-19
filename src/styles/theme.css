@@ -119,7 +119,6 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Custom Color Aliases from App.tsx */
   --color-bg: var(--background);
   --color-ink: var(--foreground);
   --color-surface: var(--card);
