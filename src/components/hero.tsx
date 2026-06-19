@@ -4,8 +4,9 @@ import AnimatedBackground from './ui/animated_bg';
 
 export default function Hero() {
     return (
-        <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-0">
+        <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-0 border-b border-border">
             <AnimatedBackground />
+
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <motion.div

@@ -1,3 +1,4 @@
+import Experience from "@/components/experience"
 import Hero from "@/components/hero"
 import Navbar from "@/components/layout/nav_bar"
 import Projects from "@/components/projects"
@@ -11,6 +12,7 @@ function App() {
       <main>
         <Hero />
         <Projects />
+        <Experience />
 
       </main>
 

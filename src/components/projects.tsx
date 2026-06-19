@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { projetos } from '../data/project_items';
 import ProjectModal from './ui/project_modal';
-import { Section } from './ui/section';
+import Section from './layout/Section';
 import type { ProjectItem } from '@/types/portifolio';
 import {
     Carousel,

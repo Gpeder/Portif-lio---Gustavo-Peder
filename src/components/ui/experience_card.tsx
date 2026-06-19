@@ -17,7 +17,7 @@ export default function ProfessionalExperienceCard({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="relative pl-8 pb-8 border-l-2 border-border last:pb-0"
+      className="relative pl-8 pb-8 border-l-2 border-primary/30 last:pb-0"
     >
       <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
 
