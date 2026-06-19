@@ -60,30 +60,40 @@ export default function Navbar() {
                         ))}
                     </nav>
 
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        className="md:hidden text-foreground hover:bg-transparent"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    >
-                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </Button>
-                </div>
+                    <div className="relative md:hidden">
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="text-foreground hover:bg-transparent"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        >
+                            <div className="relative size-6">
+                                <Menu
+                                    size={24}
+                                    className={`absolute inset-0 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`}
+                                />
+                                <X
+                                    size={24}
+                                    className={`absolute inset-0 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`}
+                                />
+                            </div>
+                        </Button>
 
-                {isMobileMenuOpen && (
-                    <nav className="md:hidden mt-4 pb-4 flex flex-col gap-2">
-                        {itens.map((item) => (
-                            <Button
-                                key={item.ancora}
-                                variant="ghost"
-                                onClick={() => scrollToSection(item.ancora)}
-                                className="justify-start text-left text-muted-foreground hover:text-primary transition-colors py-2 bg-transparent hover:bg-transparent w-full h-auto px-0"
-                            >
-                                {item.label}
-                            </Button>
-                        ))}
-                    </nav>
-                )}
+                        {isMobileMenuOpen && (
+                            <nav className="absolute right-0 top-full mt-2 w-48 rounded-lg border border-border bg-background shadow-lg z-50 flex flex-col overflow-hidden animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
+                                {itens.map((item) => (
+                                    <button
+                                        key={item.ancora}
+                                        onClick={() => scrollToSection(item.ancora)}
+                                        className="text-left text-sm font-medium text-muted-foreground px-4 py-3 hover:bg-muted hover:text-foreground transition-colors duration-150 w-full"
+                                    >
+                                        {item.label}
+                                    </button>
+                                ))}
+                            </nav>
+                        )}
+                    </div>
+                </div>
             </div>
         </header>
     );
