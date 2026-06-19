@@ -1,6 +1,6 @@
 import { experienciasProfissionais } from '../data/experience_items';
-import Section from './layout/Section';
-import ProfessionalExperienceCard from './ui/Experience_card';
+import Section from './layout/section';
+import ProfessionalExperienceCard from './ui/experience_card';
 
 export default function Experience() {
     return (

@@ -1,4 +1,7 @@
+import Contact from "@/components/contact"
 import Experience from "@/components/experience"
+import Footer from "@/components/footer"
+import Formation from "@/components/formatio"
 import Hero from "@/components/hero"
 import Navbar from "@/components/layout/nav_bar"
 import Projects from "@/components/projects"
@@ -13,9 +16,10 @@ function App() {
         <Hero />
         <Projects />
         <Experience />
-
+        <Formation />
+        <Contact />
       </main>
-
+      <Footer />
     </div>
   )
 }

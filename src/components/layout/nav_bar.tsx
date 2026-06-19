@@ -1,23 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-
-interface NavigationItem {
-    label: string;
-    ancora: string;
-}
-
 import { Button } from '../ui/button';
-
-const navigationItems: NavigationItem[] = [
-    { label: "Projetos", ancora: "projetos" },
-    { label: "Experiência", ancora: "experiencia" },
-    { label: "Formação", ancora: "formacao" },
-    { label: "Contato", ancora: "contato" },
-];
+import { siteConfig } from '../../data/site_config';
+import { navigationItems } from '../../data/nav_items';
 
 export default function Navbar() {
-    const nome = "Gustavo Peder";
-    const itens = navigationItems;
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -45,10 +32,10 @@ export default function Navbar() {
         >
             <div className="container mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
-                    <div className="text-xl font-bold text-foreground">{nome}</div>
+                    <div className="text-xl font-bold text-foreground">{siteConfig.nome}</div>
 
                     <nav className="hidden md:flex items-center gap-8">
-                        {itens.map((item) => (
+                        {navigationItems.map((item) => (
                             <Button
                                 key={item.ancora}
                                 variant="ghost"
@@ -81,7 +68,7 @@ export default function Navbar() {
 
                         {isMobileMenuOpen && (
                             <nav className="absolute right-0 top-full mt-2 w-48 rounded-lg border border-border bg-background shadow-lg z-50 flex flex-col overflow-hidden animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
-                                {itens.map((item) => (
+                                {navigationItems.map((item) => (
                                     <button
                                         key={item.ancora}
                                         onClick={() => scrollToSection(item.ancora)}

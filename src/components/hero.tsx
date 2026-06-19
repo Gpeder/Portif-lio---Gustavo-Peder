@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Circle } from 'lucide-react';
 import AnimatedBackground from './ui/animated_bg';
+import { heroData } from '../data/hero_items';
 
 export default function Hero() {
     return (
@@ -16,20 +17,31 @@ export default function Hero() {
                     >
                         <div className="space-y-6">
                             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-                                <span className="block">Desenvolvedor</span>
-                                <span className="block">Front End &</span>
-                                <span className="block text-primary">UX/UI Designer</span>
+                                {heroData.titulos.map((titulo, i) => (
+                                    <span
+                                        key={i}
+                                        className={`block ${i === heroData.titulos.length - 1 ? 'text-primary' : ''}`}
+                                    >
+                                        {titulo}
+                                    </span>
+                                ))}
                             </h1>
 
-                            {true && (
+                            {heroData.disponivel && (
                                 <div className="flex items-center gap-2 text-primary">
                                     <Circle size={12} className="fill-current animate-pulse" />
-                                    <span className="text-sm">Disponível para projetos</span>
+                                    <span className="text-sm">{heroData.disponivel_texto}</span>
                                 </div>
                             )}
 
                             <p className="text-lg text-foreground/90 leading-relaxed max-w-xl">
-                                Desenvolvedor Front End com experiência em <strong className="text-primary font-bold">React</strong> e <strong className="text-primary font-bold">TypeScript</strong>, atuando do design no Figma à entrega final. Foco em interfaces modernas, integração com APIs e boa experiência do usuário.
+                                {heroData.descricao.split(new RegExp(`(${heroData.destaques.join('|')})`)).map((parte, i) =>
+                                    heroData.destaques.includes(parte) ? (
+                                        <strong key={i} className="text-primary font-bold">{parte}</strong>
+                                    ) : (
+                                        <span key={i}>{parte}</span>
+                                    )
+                                )}
                             </p>
                         </div>
                     </motion.div>

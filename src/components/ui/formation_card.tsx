@@ -2,7 +2,7 @@ import { GraduationCap, BookOpen, Languages } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
-import { FormationCardProps } from '@/types/portifolio';
+import type { FormationCardProps } from '@/types/portifolio';
 
 export default function FormationCard({ academica, cursos_intensivos, idiomas }: FormationCardProps) {
   return (

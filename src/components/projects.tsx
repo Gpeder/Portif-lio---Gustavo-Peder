@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { projetos } from '../data/project_items';
 import ProjectModal from './ui/project_modal';
-import Section from './layout/Section';
+import Section from './layout/section';
 import type { ProjectItem } from '@/types/portifolio';
 import {
     Carousel,
@@ -10,7 +10,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel';
-import ProjectCard from './ui/ProjectCard';
+import ProjectCard from './ui/projectCard';
 
 export default function Projects() {
     const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
