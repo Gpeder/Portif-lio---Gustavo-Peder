@@ -13,8 +13,8 @@ body {
 }
 
 ::selection {
-  background-color: #fb1;
-  color: #0a0a0a;
+  background-color: var(--accent);
+  color: var(--background);
 }
 
 ::-webkit-scrollbar {
@@ -22,14 +22,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: var(--border);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #fb1;
+  background: var(--accent);
 }

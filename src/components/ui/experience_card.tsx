@@ -42,11 +42,7 @@ export default function ProfessionalExperienceCard({
 
           <div className="flex flex-wrap gap-2">
             {tecnologias.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-accent text-sm rounded-md"
-                style={{ backgroundColor: 'var(--accent-soft)' }}
-              >
+              <span key={tech} className="px-3 py-1 text-accent text-sm rounded-md bg-accent-soft">
                 {tech}
               </span>
             ))}

@@ -8,24 +8,10 @@ export default function ScrollTop() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const toggleVisibility = () => {
-            if (window.scrollY > 500) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
-        };
-
+        const toggleVisibility = () => setIsVisible(window.scrollY > 500);
         window.addEventListener('scroll', toggleVisibility);
         return () => window.removeEventListener('scroll', toggleVisibility);
     }, []);
-
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    };
 
     return (
         <AnimatePresence>
@@ -34,7 +20,7 @@ export default function ScrollTop() {
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0 }}
-                    onClick={scrollToTop}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className={cn(
                         buttonVariants({ variant: 'default', size: 'icon' }),
                         "fixed bottom-8 right-8 z-50 rounded-full shadow-lg hover:scale-110 transition-transform bg-primary text-primary-foreground h-12 w-12"

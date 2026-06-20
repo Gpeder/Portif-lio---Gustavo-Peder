@@ -17,18 +17,7 @@ export interface ExperienceItem {
     company: string;
     role: string;
     description: string;
-    responsibilities: string[];
     tecnologias: string[];
-    link: string;
-}
-
-// items formação
-export interface FormationItem {
-    years: string;
-    course: string;
-    institution: string;
-    description: string;
-    link: string;
 }
 
 // Sub-itens detalhados da formação

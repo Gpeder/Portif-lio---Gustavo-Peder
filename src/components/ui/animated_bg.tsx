@@ -1,36 +1,28 @@
 import { motion } from 'motion/react';
 
-export default function AnimatedBackground() {
-    const particles = Array.from({ length: 20 });
+const w = window.innerWidth;
+const h = window.innerHeight;
 
+const PARTICLES = Array.from({ length: 20 }, () => ({
+    initial: { x: Math.random() * w, y: Math.random() * h },
+    animate: {
+        x: [Math.random() * w, Math.random() * w, Math.random() * w],
+        y: [Math.random() * h, Math.random() * h, Math.random() * h],
+        opacity: [0, 1, 0],
+    },
+    duration: Math.random() * 10 + 10,
+}));
+
+export default function AnimatedBackground() {
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {particles.map((_, i) => (
+            {PARTICLES.map((p, i) => (
                 <motion.div
                     key={i}
                     className="absolute w-1 h-1 bg-primary/30 rounded-full"
-                    initial={{
-                        x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-                        y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
-                    }}
-                    animate={{
-                        x: [
-                            Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-                            Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-                            Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-                        ],
-                        y: [
-                            Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
-                            Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
-                            Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
-                        ],
-                        opacity: [0, 1, 0],
-                    }}
-                    transition={{
-                        duration: Math.random() * 10 + 10,
-                        repeat: Infinity,
-                        ease: "linear",
-                    }}
+                    initial={p.initial}
+                    animate={p.animate}
+                    transition={{ duration: p.duration, repeat: Infinity, ease: "linear" }}
                 />
             ))}
 

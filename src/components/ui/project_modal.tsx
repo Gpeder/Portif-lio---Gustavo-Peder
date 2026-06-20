@@ -6,18 +6,66 @@ import { cn } from '@/lib/utils';
 import { GithubIcon } from '@/components/ui/icons';
 import type { ProjectItem } from '@/types/portifolio';
 
+const sectionLabel = "mb-3 text-foreground/80 uppercase tracking-widest text-xs font-medium";
+
 interface ProjectModalProps {
     projeto: ProjectItem | null;
     onClose: () => void;
 }
 
-export default function ProjectModal({ projeto, onClose }: ProjectModalProps) {
+function Screenshots({ screenshots, projectName }: { screenshots: string[]; projectName: string }) {
     const [activeImg, setActiveImg] = useState(0);
+    const hasPrev = activeImg > 0;
+    const hasNext = activeImg < screenshots.length - 1;
 
-    useEffect(() => {
-        setActiveImg(0);
-    }, [projeto]);
+    if (screenshots.length === 0) return null;
 
+    return (
+        <div className="relative w-full aspect-video bg-secondary overflow-hidden rounded-t-2xl">
+            <img
+                src={screenshots[activeImg]}
+                alt={`${projectName} screenshot ${activeImg + 1}`}
+                className="w-full h-full object-cover"
+                loading="eager"
+            />
+            {hasPrev && (
+                <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => setActiveImg((i) => i - 1)}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 hover:bg-black/70 border-none text-white"
+                >
+                    <ChevronLeft size={18} />
+                </Button>
+            )}
+            {hasNext && (
+                <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => setActiveImg((i) => i + 1)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 hover:bg-black/70 border-none text-white"
+                >
+                    <ChevronRight size={18} />
+                </Button>
+            )}
+            {screenshots.length > 1 && (
+                <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 px-4">
+                    {screenshots.map((src, i) => (
+                        <button
+                            key={src}
+                            onClick={() => setActiveImg(i)}
+                            className={`w-12 h-8 rounded overflow-hidden border-2 transition-all ${i === activeImg ? 'border-accent opacity-100' : 'border-white/20 opacity-50 hover:opacity-80'}`}
+                        >
+                            <img src={src} alt={`${projectName} - screenshot ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                        </button>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
+export default function ProjectModal({ projeto, onClose }: ProjectModalProps) {
     useEffect(() => {
         if (!projeto) return;
         const onKey = (e: KeyboardEvent) => {
@@ -30,10 +78,6 @@ export default function ProjectModal({ projeto, onClose }: ProjectModalProps) {
             document.body.style.overflow = '';
         };
     }, [projeto, onClose]);
-
-    const screenshots = projeto?.screenshots ?? [];
-    const hasPrev = activeImg > 0;
-    const hasNext = activeImg < screenshots.length - 1;
 
     return (
         <AnimatePresence>
@@ -67,52 +111,11 @@ export default function ProjectModal({ projeto, onClose }: ProjectModalProps) {
 
                         <div className="overflow-y-auto max-h-[90vh]" style={{ scrollbarWidth: 'thin' }}>
 
-                            {screenshots.length > 0 && (
-                                <div className="relative w-full aspect-video bg-secondary overflow-hidden rounded-t-2xl">
-                                    <img
-                                        src={screenshots[activeImg]}
-                                        alt={`${projeto.name} screenshot ${activeImg + 1}`}
-                                        className="w-full h-full object-cover"
-                                        loading="eager"
-                                    />
-
-                                    {hasPrev && (
-                                        <Button
-                                            variant="outline"
-                                            size="icon"
-                                            onClick={() => setActiveImg((i) => i - 1)}
-                                            className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 hover:bg-black/70 border-none text-white"
-                                        >
-                                            <ChevronLeft size={18} />
-                                        </Button>
-                                    )}
-                                    {hasNext && (
-                                        <Button
-                                            variant="outline"
-                                            size="icon"
-                                            onClick={() => setActiveImg((i) => i + 1)}
-                                            className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 hover:bg-black/70 border-none text-white"
-                                        >
-                                            <ChevronRight size={18} />
-                                        </Button>
-                                    )}
-
-                                    {screenshots.length > 1 && (
-                                        <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 px-4">
-                                            {screenshots.map((src, i) => (
-                                                <button
-                                                    key={src}
-                                                    onClick={() => setActiveImg(i)}
-                                                    className={`w-12 h-8 rounded overflow-hidden border-2 transition-all ${i === activeImg ? 'border-accent opacity-100' : 'border-white/20 opacity-50 hover:opacity-80'
-                                                        }`}
-                                                >
-                                                    <img src={src} alt={`${projeto.name} - screenshot ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
-                                                </button>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                            )}
+                            <Screenshots
+                                key={projeto.name}
+                                screenshots={projeto.screenshots ?? []}
+                                projectName={projeto.name}
+                            />
 
                             <div className="p-6 md:p-8 space-y-6">
                                 <div className="flex flex-wrap items-start justify-between gap-4">
@@ -120,10 +123,7 @@ export default function ProjectModal({ projeto, onClose }: ProjectModalProps) {
                                         <div className="flex items-center gap-3 mb-2">
                                             <h2 className="text-2xl md:text-3xl">{projeto.name}</h2>
                                             {projeto.status && (
-                                                <span
-                                                    className="px-3 py-1 text-xs rounded-full text-accent"
-                                                    style={{ backgroundColor: 'var(--accent-soft)' }}
-                                                >
+                                                <span className="px-3 py-1 text-xs rounded-full text-accent bg-accent-soft">
                                                     {projeto.status}
                                                 </span>
                                             )}
@@ -142,7 +142,7 @@ export default function ProjectModal({ projeto, onClose }: ProjectModalProps) {
                                                     'flex items-center gap-2 text-sm'
                                                 )}
                                             >
-                                                <GithubIcon size={16} className="size-4" />
+                                                <GithubIcon className="size-4" />
                                                 Código
                                             </a>
                                         )}
@@ -167,14 +167,14 @@ export default function ProjectModal({ projeto, onClose }: ProjectModalProps) {
 
                                 {projeto.overview && (
                                     <div>
-                                        <h3 className="text-base mb-3 text-foreground/80 uppercase tracking-widest text-xs font-medium">Visão geral</h3>
+                                        <h3 className={sectionLabel}>Visão geral</h3>
                                         <p className="text-foreground/80 leading-relaxed">{projeto.overview}</p>
                                     </div>
                                 )}
 
                                 {projeto.features && projeto.features.length > 0 && (
                                     <div>
-                                        <h3 className="text-base mb-3 text-foreground/80 uppercase tracking-widest text-xs font-medium">Funcionalidades</h3>
+                                        <h3 className={sectionLabel}>Funcionalidades</h3>
                                         <ul className="space-y-2">
                                             {projeto.features.map((f) => (
                                                 <li key={f} className="flex items-start gap-3 text-foreground/80">
@@ -187,13 +187,12 @@ export default function ProjectModal({ projeto, onClose }: ProjectModalProps) {
                                 )}
 
                                 <div>
-                                    <h3 className="mb-3 text-foreground/80 uppercase tracking-widest text-xs font-medium">Stack</h3>
+                                    <h3 className={sectionLabel}>Stack</h3>
                                     <div className="flex flex-wrap gap-2">
                                         {projeto.tecnologias.map((tech) => (
                                             <span
                                                 key={tech}
-                                                className="px-3 py-1 text-sm rounded-md text-accent"
-                                                style={{ backgroundColor: 'var(--accent-soft)' }}
+                                                className="px-3 py-1 text-sm rounded-md text-accent bg-accent-soft"
                                             >
                                                 {tech}
                                             </span>

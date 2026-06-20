@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { heroData } from '../data/hero_items';
 import Section from './layout/section';
 
+const descricaoParts = heroData.descricao.split(new RegExp(`(${heroData.destaques.join('|')})`));
+
 export default function Hero() {
     return (
         <Section id="hero" className="min-h-screen flex items-center justify-center relative !pb-0 pt-16 md:pt-24">
@@ -36,7 +38,7 @@ export default function Hero() {
                         )}
 
                         <p className="text-lg text-foreground/90 leading-relaxed max-w-xl">
-                            {heroData.descricao.split(new RegExp(`(${heroData.destaques.join('|')})`)).map((parte, i) =>
+                            {descricaoParts.map((parte, i) =>
                                 heroData.destaques.includes(parte) ? (
                                     <strong key={i} className="text-primary font-bold">{parte}</strong>
                                 ) : (
